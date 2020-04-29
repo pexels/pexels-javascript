@@ -13,7 +13,9 @@
     "dev": "microbundle watch",
     "test": "jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1"
+  },
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "jest": "^25.5.1",
