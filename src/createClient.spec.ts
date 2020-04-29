@@ -29,5 +29,15 @@ describe("#createClient", () => {
       ]);
       queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
     });
+
+    test("client.photos.show", async () => {
+      const queries = await Promise.all([client.photos.show({ id: 2014422 })]);
+      queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
+    });
+
+    test("client.photos.random", async () => {
+      const queries = await Promise.all([client.photos.random()]);
+      queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
+    });
   });
 });

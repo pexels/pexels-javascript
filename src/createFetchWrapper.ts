@@ -11,9 +11,9 @@ export default function createFetchWrapper(apiKey: string) {
     },
   };
 
-  return <T extends Params>(path: string, params: T) =>
+  return <T extends Params>(path: string, params?: T) =>
     fetch(
-      `${baseUrl}/${path}?${stringifyParams(params)}`,
+      `${baseUrl}/${path}?${stringifyParams(params || {})}`,
       options
     ).then((response) => response.json());
 }

@@ -1,3 +1,7 @@
+export interface ErrorResponse {
+  error: string;
+}
+
 export interface Params {
   [key: string]: string | number | undefined;
 }
@@ -13,6 +17,8 @@ export interface PaginationObject {
   per_page: number;
   next_page: number;
 }
+
+export type Photos = PaginationParams & { photos: Photo[] };
 
 export interface Photo {
   id: number;
@@ -33,4 +39,12 @@ export interface Photo {
     landscape: string;
     tiny: string;
   };
+}
+
+export function isPhotos(x: any): x is Photos {
+  return !!(x && x.photos);
+}
+
+export function isError(x: any): x is ErrorResponse {
+  return !!x.error;
 }

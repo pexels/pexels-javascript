@@ -520,6 +520,29 @@ Object {
 }
 `;
 
+exports[`#createClient snapshots client.photos.random 1`] = `
+Object {
+  "height": null,
+  "id": null,
+  "liked": false,
+  "photographer": null,
+  "photographer_id": null,
+  "photographer_url": null,
+  "src": Object {
+    "landscape": null,
+    "large": null,
+    "large2x": null,
+    "medium": null,
+    "original": null,
+    "portrait": null,
+    "small": null,
+    "tiny": null,
+  },
+  "url": null,
+  "width": null,
+}
+`;
+
 exports[`#createClient snapshots client.photos.search 1`] = `
 Object {
   "next_page": null,
@@ -919,5 +942,28 @@ Object {
     },
   ],
   "total_results": null,
+}
+`;
+
+exports[`#createClient snapshots client.photos.show 1`] = `
+Object {
+  "height": null,
+  "id": null,
+  "liked": false,
+  "photographer": null,
+  "photographer_id": null,
+  "photographer_url": null,
+  "src": Object {
+    "landscape": null,
+    "large": null,
+    "large2x": null,
+    "medium": null,
+    "original": null,
+    "portrait": null,
+    "small": null,
+    "tiny": null,
+  },
+  "url": null,
+  "width": null,
 }
 `;
