@@ -2,6 +2,11 @@ export interface Params {
   [key: string]: string | number | undefined;
 }
 
+export interface PaginationParams extends Params {
+  per_page?: number;
+  page?: number;
+}
+
 export interface PaginationObject {
   total_results: number;
   page: number;

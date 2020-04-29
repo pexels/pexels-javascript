@@ -1,13 +1,13 @@
 import createFetchWrapper from "./createFetchWrapper";
-import { Params, PaginationObject, Photo } from "./types";
+import { PaginationObject, Photo, PaginationParams } from "./types";
 
-interface SearchParams extends Params {
+interface SearchParams extends PaginationParams {
   query: string;
-  per_page?: number;
-  page?: number;
 }
-
 type SearchReturn = PaginationObject & { photos: Photo[] };
+
+interface CuratedParams extends PaginationParams {}
+type CuratedReturn = PaginationParams & { photos: Photo[] };
 
 export default function generatePhotoEndpoints(apiKey: string) {
   const fetchWrapper = createFetchWrapper(apiKey);
@@ -15,6 +15,9 @@ export default function generatePhotoEndpoints(apiKey: string) {
   return {
     search(params: SearchParams): Promise<SearchReturn> {
       return fetchWrapper(`/search`, params);
+    },
+    curated(params: CuratedParams = {}): Promise<CuratedReturn> {
+      return fetchWrapper(`/curated`, params);
     },
   };
 }

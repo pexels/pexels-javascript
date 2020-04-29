@@ -21,5 +21,13 @@ describe("#createClient", () => {
       ]);
       queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
     });
+
+    test("client.photos.curated", async () => {
+      const queries = await Promise.all([
+        client.photos.curated(),
+        client.photos.curated({ page: 1, per_page: 10 }),
+      ]);
+      queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
+    });
   });
 });
