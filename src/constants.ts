@@ -1,4 +1,3 @@
 export const photoBaseUrl = "https://api.pexels.com/v1/";
 export const videoBaseUrl = "https://api.pexels.com/videos/";
-export const testApiKey =
-  "563492ad6f91700001000001d09dede2f4c146e59147644aef854b95";
+export const testApiKey = process.env.API_KEY as string;
