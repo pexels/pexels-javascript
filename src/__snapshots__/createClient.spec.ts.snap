@@ -4956,3 +4956,148 @@ Object {
   ],
 }
 `;
+
+exports[`#createClient snapshots client.videos.show 1`] = `
+Object {
+  "duration": null,
+  "full_res": null,
+  "height": null,
+  "id": null,
+  "image": null,
+  "tags": Array [],
+  "url": null,
+  "user": Object {
+    "id": null,
+    "name": null,
+    "url": null,
+  },
+  "video_files": Array [
+    Object {
+      "file_type": null,
+      "height": null,
+      "id": null,
+      "link": null,
+      "quality": null,
+      "width": null,
+    },
+    Object {
+      "file_type": null,
+      "height": null,
+      "id": null,
+      "link": null,
+      "quality": null,
+      "width": null,
+    },
+    Object {
+      "file_type": null,
+      "height": null,
+      "id": null,
+      "link": null,
+      "quality": null,
+      "width": null,
+    },
+    Object {
+      "file_type": null,
+      "height": null,
+      "id": null,
+      "link": null,
+      "quality": null,
+      "width": null,
+    },
+    Object {
+      "file_type": null,
+      "height": null,
+      "id": null,
+      "link": null,
+      "quality": null,
+      "width": null,
+    },
+    Object {
+      "file_type": null,
+      "height": null,
+      "id": null,
+      "link": null,
+      "quality": null,
+      "width": null,
+    },
+  ],
+  "video_pictures": Array [
+    Object {
+      "id": null,
+      "nr": 0,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+    Object {
+      "id": null,
+      "nr": null,
+      "picture": null,
+    },
+  ],
+  "width": null,
+}
+`;

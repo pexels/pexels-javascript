@@ -49,5 +49,10 @@ describe("#createClient", () => {
       const value = await client.videos.popular();
       expect(mutateAllValuesToNull(value)).toMatchSnapshot();
     });
+
+    test("client.videos.show", async () => {
+      const value = await client.videos.show({ id: 2499611 });
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
+    });
   });
 });
