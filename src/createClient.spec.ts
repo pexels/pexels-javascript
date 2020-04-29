@@ -2,6 +2,12 @@ import createClient from "./createClient";
 import { mutateAllValuesToNull } from "./testUtil";
 import { testApiKey } from "./constants";
 
+if (!testApiKey) {
+  throw new Error(
+    `API_KEY must be passed in as an environment variable. Get yours from: https://www.pexels.com/api/new/`
+  );
+}
+
 describe("#createClient", () => {
   test("smoke test", () => {
     expect(() => createClient("api key")).not.toThrowError();
@@ -15,41 +21,33 @@ describe("#createClient", () => {
     const client = createClient(testApiKey);
 
     test("client.photos.search", async () => {
-      const queries = await Promise.all([
-        client.photos.search({ query: "nature" }),
-        client.photos.search({ query: "nature", page: 1, per_page: 4, }), // prettier-ignore
-      ]);
-      queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
+      const value = await client.photos.search({ query: "nature" });
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
     });
 
     test("client.photos.curated", async () => {
-      const queries = await Promise.all([
-        client.photos.curated(),
-        client.photos.curated({ page: 1, per_page: 10 }),
-      ]);
-      queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
+      const value = await client.photos.curated();
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
     });
 
     test("client.photos.show", async () => {
-      const queries = await Promise.all([client.photos.show({ id: 2014422 })]);
-      queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
+      const value = await client.photos.show({ id: 2014422 });
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
     });
 
     test("client.photos.random", async () => {
-      const queries = await Promise.all([client.photos.random()]);
-      queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
+      const value = await client.photos.random();
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
     });
 
     test("client.videos.search", async () => {
-      const queries = await Promise.all([
-        client.videos.search({ query: "nature" }),
-        client.videos.search({
-          query: "nature",
-          min_duration: 0,
-          max_duration: 10000000,
-        }),
-      ]);
-      queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
+      const value = await client.videos.search({ query: "nature" });
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
+    });
+
+    test("client.videos.popular", async () => {
+      const value = await client.videos.popular();
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
     });
   });
 });
