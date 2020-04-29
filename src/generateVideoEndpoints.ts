@@ -1,5 +1,10 @@
 import createFetchWrapper from "./createFetchWrapper";
-import { PaginationParams, ErrorResponse, Videos } from "./types";
+import {
+  PaginationParams,
+  ErrorResponse,
+  Videos,
+  VideoFilterParams,
+} from "./types";
 
 type SearchReturn = Videos | ErrorResponse;
 
@@ -8,15 +13,17 @@ export default function generatePhotoEndpoints(apiKey: string) {
 
   return {
     search(
-      params: PaginationParams & {
-        query: string;
-        min_width?: number;
-        max_width?: number;
-        min_duration?: number;
-        max_duration?: number;
-      }
+      params: PaginationParams &
+        VideoFilterParams & {
+          query: string;
+        }
     ): Promise<SearchReturn> {
       return fetchWrapper(`/search`, params);
+    },
+    popular(
+      params: PaginationParams & VideoFilterParams = {}
+    ): Promise<SearchReturn> {
+      return fetchWrapper(`/popular`, params);
     },
   };
 }
