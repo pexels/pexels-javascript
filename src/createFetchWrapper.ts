@@ -1,7 +1,10 @@
 import { Params } from "./types";
-import { baseUrl } from "./constants";
+import { photoBaseUrl, videoBaseUrl } from "./constants";
 
-export default function createFetchWrapper(apiKey: string) {
+export default function createFetchWrapper(
+  apiKey: string,
+  type: "photo" | "video"
+) {
   const options = {
     method: "GET",
     headers: {
@@ -10,6 +13,8 @@ export default function createFetchWrapper(apiKey: string) {
       Authorization: apiKey,
     },
   };
+
+  const baseUrl = type === "photo" ? photoBaseUrl : videoBaseUrl;
 
   return <T extends Params>(path: string, params?: T) =>
     fetch(

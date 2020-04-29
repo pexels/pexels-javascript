@@ -39,5 +39,17 @@ describe("#createClient", () => {
       const queries = await Promise.all([client.photos.random()]);
       queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
     });
+
+    test("client.videos.search", async () => {
+      const queries = await Promise.all([
+        client.videos.search({ query: "nature" }),
+        client.videos.search({
+          query: "nature",
+          min_duration: 0,
+          max_duration: 10000000,
+        }),
+      ]);
+      queries.forEach((value) => expect(mutateAllValuesToNull(value)).toMatchSnapshot()); // prettier-ignore
+    });
   });
 });

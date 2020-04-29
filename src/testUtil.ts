@@ -6,7 +6,7 @@ export function mutateAllValuesToNull(object: any) {
   // Allow some data that won't change to not be overridden
   const whitelistedKeys = ["page", "per_page"];
 
-  if (typeof object === "object") {
+  if (object && typeof object === "object") {
     Object.keys(object).forEach((key) => {
       if (whitelistedKeys.includes(key)) {
         return;

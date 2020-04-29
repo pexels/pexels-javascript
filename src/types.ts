@@ -12,7 +12,8 @@ export interface PaginationParams extends Params {
 }
 
 export interface PaginationObject {
-  total_results: number;
+  url?: string;
+  total_results?: number;
   page: number;
   per_page: number;
   next_page: number;
@@ -41,10 +42,33 @@ export interface Photo {
   };
 }
 
-export function isPhotos(x: any): x is Photos {
-  return !!(x && x.photos);
+export interface Video {
+  id: number;
+  width: number;
+  height: number;
+  url: string;
+  image: string;
+  full_res: unknown;
+  tags: unknown[];
+  duration: number;
+  user: {
+    id: number;
+    name: string;
+    url: string;
+  };
+  video_files: {
+    id: number;
+    quality: "hd" | "sd" | "hls"; // TODO: find out all types
+    file_type: "string";
+    width: number | null;
+    height: number | null;
+    link: string;
+  }[];
+  video_pictures: {
+    id: number;
+    picture: string;
+    nr: number;
+  }[];
 }
 
-export function isError(x: any): x is ErrorResponse {
-  return !!x.error;
-}
+export type Videos = PaginationParams & { videos: Video[] };

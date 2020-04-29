@@ -1,6 +1,7 @@
 require("isomorphic-fetch");
 
-import generatePhotoEndPoints from "./generatePhotoEndpoints";
+import generatePhotoEndpoints from "./generatePhotoEndpoints";
+import generateVideoEndpoints from "./generateVideoEndpoints";
 
 export default function createClient(apiKey: string) {
   if (!apiKey || typeof apiKey !== "string") {
@@ -10,6 +11,7 @@ export default function createClient(apiKey: string) {
   }
 
   return {
-    photos: generatePhotoEndPoints(apiKey),
+    photos: generatePhotoEndpoints(apiKey),
+    videos: generateVideoEndpoints(apiKey),
   };
 }
