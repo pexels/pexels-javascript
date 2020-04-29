@@ -1,8 +1,14 @@
 import createFetchWrapper from "./createFetchWrapper";
-import { Photo, PaginationParams, ErrorResponse, Photos } from "./types";
+import {
+  Photo,
+  PaginationParams,
+  ErrorResponse,
+  Photos,
+  PhotosWithTotalResults,
+} from "./types";
 import { isPhotos } from "./typeCheckers";
 
-type SearchReturn = Photos | ErrorResponse;
+type SearchReturn = PhotosWithTotalResults | ErrorResponse;
 type CuratedReturn = Photos | ErrorResponse;
 type ShowReturn = Photo | ErrorResponse;
 type RandomReturn = Photo | ErrorResponse;

@@ -11,15 +11,19 @@ export interface PaginationParams extends Params {
   page?: number;
 }
 
-export interface PaginationObject {
+export interface VideoFilterParams extends Params {
+  min_width?: number;
+  max_width?: number;
+  min_duration?: number;
+  max_duration?: number;
+}
+
+interface PaginationObject {
   url?: string;
-  total_results?: number;
   page: number;
   per_page: number;
   next_page: number;
 }
-
-export type Photos = PaginationParams & { photos: Photo[] };
 
 export interface Photo {
   id: number;
@@ -41,6 +45,10 @@ export interface Photo {
     tiny: string;
   };
 }
+
+export type Photos = PaginationObject & { photos: Photo[] };
+
+export type PhotosWithTotalResults = Photos & { total_results: number };
 
 export interface Video {
   id: number;
@@ -71,4 +79,7 @@ export interface Video {
   }[];
 }
 
-export type Videos = PaginationParams & { videos: Video[] };
+export type Videos = PaginationObject & {
+  total_results: number;
+  videos: Video[];
+};
