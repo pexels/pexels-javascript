@@ -1,14 +1,28 @@
 {
-  "name": "pexels-javascript",
+  "name": "pexels",
   "version": "1.0.0",
   "description": "The official Pexels API Javascript client.",
+  "homepage": "https://github.com/pexels/pexels-javascript",
   "author": "Joey Farina",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pexels/pexels-javascript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pexels/pexels-javascript/issues"
+  },
   "source": "src/main.ts",
   "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "module": "dist/main.module.js",
   "unpkg": "dist/main.umd.js",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
+    "prepare": "yarn build",
+    "postversion": "git push && git push --tags",
     "build": "microbundle",
     "dev": "microbundle watch",
     "test": "jest"

@@ -2,6 +2,7 @@ require("isomorphic-fetch");
 
 import generatePhotoEndpoints from "./generatePhotoEndpoints";
 import generateVideoEndpoints from "./generateVideoEndpoints";
+import * as typeCheckers from "./typeCheckers";
 
 export default function createClient(apiKey: string) {
   if (!apiKey || typeof apiKey !== "string") {
@@ -11,6 +12,7 @@ export default function createClient(apiKey: string) {
   }
 
   return {
+    typeCheckers,
     photos: generatePhotoEndpoints(apiKey),
     videos: generateVideoEndpoints(apiKey),
   };
