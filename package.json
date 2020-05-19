@@ -1,6 +1,6 @@
 {
   "name": "pexels",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The official Pexels API Javascript client.",
   "homepage": "https://github.com/pexels/pexels-javascript",
   "author": "Joey Farina",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "jest": "^25.5.1",
-    "microbundle": "^0.11.0",
+    "microbundle": "^0.12.0",
     "prettier": "^2.0.5",
     "ts-jest": "^25.4.0",
     "typescript": "^3.8.3"
