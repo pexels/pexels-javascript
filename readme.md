@@ -14,7 +14,7 @@ npm add pexels --save
 
 ## Documentation
 
-See the API docs [here](https://www.pexels.com/api/documentation/?language=js)
+See the API docs [here](https://www.pexels.com/api/documentation/?language=javascript)
 
 ## Tests
 
