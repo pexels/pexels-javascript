@@ -1,10 +1,15 @@
 import { Params } from "./types";
-import { photoBaseUrl, videoBaseUrl } from "./constants";
+import { photoBaseUrl, videoBaseUrl, collectionBaseUrl } from "./constants";
 
-export default function createFetchWrapper(
-  apiKey: string,
-  type: "photo" | "video"
-) {
+type AllowedTypes = "photo" | "video" | "collections";
+
+const baseUrls: { [T in AllowedTypes]: string } = {
+  photo: photoBaseUrl,
+  video: videoBaseUrl,
+  collections: collectionBaseUrl,
+};
+
+export default function createFetchWrapper(apiKey: string, type: AllowedTypes) {
   const options = {
     method: "GET",
     headers: {
@@ -14,11 +19,11 @@ export default function createFetchWrapper(
     },
   };
 
-  const baseUrl = type === "photo" ? photoBaseUrl : videoBaseUrl;
+  const baseUrl = baseUrls[type];
 
   return <T extends Params>(path: string, params?: T) =>
     fetch(
-      `${baseUrl}/${path}?${stringifyParams(params || {})}`,
+      `${baseUrl}${path}?${stringifyParams(params || {})}`,
       options
     ).then((response) => response.json());
 }

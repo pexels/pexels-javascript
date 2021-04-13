@@ -83,3 +83,13 @@ export type Videos = PaginationObject & {
   total_results: number;
   videos: Video[];
 };
+
+export type Medium = Photo | Video;
+
+export interface Collection {
+  id: string;
+  title: string;
+  description: string | null;
+  private: boolean;
+  media_count: number;
+}
