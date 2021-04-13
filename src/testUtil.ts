@@ -16,6 +16,11 @@ export function mutateAllValuesToNull(object: any) {
         return;
       }
 
+      if (Array.isArray(object)) {
+        object.forEach(mutateAllValuesToNull);
+        return;
+      }
+
       if (typeof object[key] === "object") {
         mutateAllValuesToNull(object[key]);
         return;

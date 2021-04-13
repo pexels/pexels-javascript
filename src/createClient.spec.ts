@@ -54,5 +54,30 @@ describe("#createClient", () => {
       const value = await client.videos.show({ id: 2499611 });
       expect(mutateAllValuesToNull(value)).toMatchSnapshot();
     });
+
+    test("client.collections.all", async () => {
+      const value = await client.collections.all();
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
+    });
+
+    test("client.collections.all?filter=videos", async () => {
+      const value = await client.collections.all({ type: "videos" });
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
+    });
+
+    test("client.collections.all?filter=photo", async () => {
+      const value = await client.collections.all({ type: "photos" });
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
+    });
+
+    test("client.collections.all?filter=photo", async () => {
+      const value = await client.collections.all({ type: "photos" });
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
+    });
+
+    test.only("client.collections.media", async () => {
+      const value = await client.collections.media({ id: "sm6azai" });
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
+    });
   });
 });
