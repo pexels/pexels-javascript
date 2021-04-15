@@ -21,13 +21,17 @@ export default function generateCollectionEndpoints(apiKey: string) {
   const fetchWrapper = createFetchWrapper(apiKey, "collections");
 
   return {
-    all(
-      params: PaginationParams & { type?: "photos" | "videos" } = {}
-    ): Promise<AllReturn> {
+    all(params: PaginationParams): Promise<AllReturn> {
       return fetchWrapper("", params);
     },
-    media({ id }: { id: string | number }): Promise<MediaReturn> {
-      return fetchWrapper(`${id}`);
+    media({
+      id,
+      ...params
+    }: PaginationParams & {
+      id: string | number;
+      type?: "photos" | "videos";
+    }): Promise<MediaReturn> {
+      return fetchWrapper(`${id}`, params);
     },
   };
 }
