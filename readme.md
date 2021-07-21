@@ -9,7 +9,7 @@ yarn add pexels
 
 or
 
-npm add pexels --save
+npm install pexels --save
 ```
 
 ## Documentation
