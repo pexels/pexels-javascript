@@ -92,4 +92,6 @@ export interface Collection {
   description: string | null;
   private: boolean;
   media_count: number;
+  photos_count: number;
+  videos_count: number;
 }

@@ -75,8 +75,13 @@ describe("#createClient", () => {
       expect(mutateAllValuesToNull(value)).toMatchSnapshot();
     });
 
-    test.only("client.collections.media", async () => {
+    test("client.collections.media", async () => {
       const value = await client.collections.media({ id: "sm6azai" });
+      expect(mutateAllValuesToNull(value)).toMatchSnapshot();
+    });
+
+    test("client.collections.featured", async () => {
+      const value = await client.collections.featured();
       expect(mutateAllValuesToNull(value)).toMatchSnapshot();
     });
   });
