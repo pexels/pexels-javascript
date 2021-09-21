@@ -13,15 +13,20 @@ type MediaReturn =
   | {
       page: number;
       per_page: number;
+      total_results: number;
       media: (Medium & { type: "Video" | "Photo" })[];
     }
+  | ErrorResponse;
+
+type FeaturedReturn =
+  | { page: number; per_page: number; collections: Collection[] }
   | ErrorResponse;
 
 export default function generateCollectionEndpoints(apiKey: string) {
   const fetchWrapper = createFetchWrapper(apiKey, "collections");
 
   return {
-    all(params: PaginationParams): Promise<AllReturn> {
+    all(params: PaginationParams = {}): Promise<AllReturn> {
       return fetchWrapper("", params);
     },
     media({
@@ -32,6 +37,9 @@ export default function generateCollectionEndpoints(apiKey: string) {
       type?: "photos" | "videos";
     }): Promise<MediaReturn> {
       return fetchWrapper(`${id}`, params);
+    },
+    featured(params: PaginationParams = {}): Promise<FeaturedReturn> {
+      return fetchWrapper("featured", params);
     },
   };
 }
