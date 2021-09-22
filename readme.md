@@ -1,5 +1,8 @@
 # Pexels Javascript Library
 
+
+[![npm version](https://img.shields.io/npm/v/pexels.svg?style=flat)](https://www.npmjs.com/package/pexels) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/pexels/pexels-javascript/blob/master/readme.md)
+
 The Pexels Javascript library is a convenient wrapper around the Pexels API that can be used both on the server in Node.js and in the browser.
 
 ## Installation
