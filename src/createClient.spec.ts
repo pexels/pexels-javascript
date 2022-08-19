@@ -1,6 +1,7 @@
 import createClient from "./createClient";
 import { mutateAllValuesToNull } from "./testUtil";
-import { testApiKey } from "./constants";
+
+const testApiKey = process.env.API_KEY as string;
 
 if (!testApiKey) {
   throw new Error(
