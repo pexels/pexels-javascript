@@ -1,6 +1,6 @@
 {
   "name": "pexels",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "The official Pexels API Javascript client.",
   "homepage": "https://github.com/pexels/pexels-javascript",
   "author": "Joey Farina",
