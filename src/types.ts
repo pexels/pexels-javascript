@@ -31,7 +31,7 @@ export interface Photo {
   height: number;
   url: string;
   alt: string | null;
-  avg_color: string;
+  avg_color: string | null;
   photographer: string;
   photographer_url: string;
   photographer_id: string;
