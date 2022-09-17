@@ -30,7 +30,7 @@ export interface Photo {
   width: number;
   height: number;
   url: string;
-  alt: string;
+  alt: string | null;
   avg_color: string;
   photographer: string;
   photographer_url: string;
