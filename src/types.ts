@@ -73,6 +73,7 @@ export interface Video {
     width: number | null;
     height: number | null;
     link: string;
+    fps: number | null;
   }[];
   video_pictures: {
     id: number;
