@@ -14,14 +14,15 @@ export default function generatePhotoEndpoints(apiKey: string) {
         VideoFilterParams & {
           query: string;
         },
+      cache: boolean = true,
     ): Promise<SearchReturn> {
-      return fetchWrapper(`/search`, params);
+      return fetchWrapper(`/search`, params, cache);
     },
-    popular(params: PaginationParams & VideoFilterParams = {}): Promise<PopularReturn> {
-      return fetchWrapper(`/popular`, params);
+    popular(params: PaginationParams & VideoFilterParams = {}, cache: boolean = true): Promise<PopularReturn> {
+      return fetchWrapper(`/popular`, params, cache);
     },
-    show({ id }: { id: string | number }): Promise<ShowReturn> {
-      return fetchWrapper(`/videos/${id}`);
+    show({ id }: { id: string | number }, cache: boolean = true): Promise<ShowReturn> {
+      return fetchWrapper(`/videos/${id}`, {}, cache);
     },
   };
 }

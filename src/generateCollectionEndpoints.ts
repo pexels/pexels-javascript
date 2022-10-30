@@ -32,20 +32,23 @@ export default function generateCollectionEndpoints(apiKey: string) {
   const fetchWrapper = createFetchWrapper(apiKey, 'collections');
 
   return {
-    all(params: PaginationParams = {}): Promise<AllReturn> {
-      return fetchWrapper('', params);
+    all(params: PaginationParams = {}, cache: boolean = true): Promise<AllReturn> {
+      return fetchWrapper('', params, cache);
     },
-    media({
-      id,
-      ...params
-    }: PaginationParams & {
-      id: string | number;
-      type?: 'photos' | 'videos';
-    }): Promise<MediaReturn> {
-      return fetchWrapper(`${id}`, params);
+    media(
+      {
+        id,
+        ...params
+      }: PaginationParams & {
+        id: string | number;
+        type?: 'photos' | 'videos';
+      },
+      cache: boolean = true,
+    ): Promise<MediaReturn> {
+      return fetchWrapper(`${id}`, params, cache);
     },
-    featured(params: PaginationParams = {}): Promise<FeaturedReturn> {
-      return fetchWrapper('featured', params);
+    featured(params: PaginationParams = {}, cache: boolean = true): Promise<FeaturedReturn> {
+      return fetchWrapper('featured', params, cache);
     },
   };
 }
