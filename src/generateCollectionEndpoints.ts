@@ -5,6 +5,7 @@ type AllReturn =
   | {
       page: number;
       per_page: number;
+      total_results: number;
       collections: Collection[];
     }
   | ErrorResponse;
@@ -18,7 +19,14 @@ type MediaReturn =
     }
   | ErrorResponse;
 
-type FeaturedReturn = { page: number; per_page: number; collections: Collection[] } | ErrorResponse;
+type FeaturedReturn =
+  | {
+      page: number;
+      per_page: number;
+      total_results: number;
+      collections: Collection[];
+    }
+  | ErrorResponse;
 
 export default function generateCollectionEndpoints(apiKey: string) {
   const fetchWrapper = createFetchWrapper(apiKey, 'collections');
