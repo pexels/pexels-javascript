@@ -10,33 +10,26 @@ const baseUrls: { [T in AllowedTypes]: string } = {
 };
 
 export default function createFetchWrapper(apiKey: string, type: AllowedTypes) {
-  const headers = new Headers();
-  headers.append('Accept', 'application/json');
-  headers.append('Content-Type', 'application/json');
-  headers.append('User-Agent', 'Pexels/JavaScript');
-  headers.append('Authorization', apiKey);
-
   const options = {
     method: 'GET',
-    headers: headers,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'User-Agent': 'Pexels/JavaScript',
+      Authorization: apiKey,
+    },
   };
 
   const baseUrl = baseUrls[type];
 
-  return <T extends Params>(path: string, params?: T, cache: boolean = true) => {
-    if (!cache) {
-      options.headers.append('Cache-Control', 'no-cache');
-      options.headers.append('Pragma', 'no-cache');
-    }
-
-    return fetch(`${baseUrl}${path}?${stringifyParams(params || {})}`, options).then((response) => {
+  return <T extends Params>(path: string, params?: T) =>
+    fetch(`${baseUrl}${path}?${stringifyParams(params || {})}`, options).then((response) => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
 
       return response.json();
     });
-  };
 }
 
 function stringifyParams<T extends Params>(params: T) {

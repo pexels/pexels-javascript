@@ -11,14 +11,14 @@ export default function generatePhotoEndpoints(apiKey: string) {
   const fetchWrapper = createFetchWrapper(apiKey, 'photo');
 
   return {
-    search(params: PaginationParams & { query: string }, cache: boolean = true): Promise<SearchReturn> {
-      return fetchWrapper(`/search`, params, cache);
+    search(params: PaginationParams & { query: string }): Promise<SearchReturn> {
+      return fetchWrapper(`/search`, params);
     },
-    curated(params: PaginationParams = {}, cache: boolean = true): Promise<CuratedReturn> {
-      return fetchWrapper(`/curated`, params, cache);
+    curated(params: PaginationParams = {}): Promise<CuratedReturn> {
+      return fetchWrapper(`/curated`, params);
     },
-    show({ id }: { id: string | number }, cache: boolean = true): Promise<ShowReturn> {
-      return fetchWrapper(`/photos/${id}`, {}, cache);
+    show({ id }: { id: string | number }): Promise<ShowReturn> {
+      return fetchWrapper(`/photos/${id}`);
     },
     async random(): Promise<RandomReturn> {
       const randomPage = Math.floor(1000 * Math.random());
