@@ -1,4 +1,4 @@
-import { Photos, Videos, ErrorResponse } from "./types";
+import { ErrorResponse, Photos, Videos } from './types';
 
 /**
  * A helper function to determine if the object is a valid Photo response

@@ -1,12 +1,6 @@
-import createFetchWrapper from "./createFetchWrapper";
-import {
-  Photo,
-  PaginationParams,
-  ErrorResponse,
-  Photos,
-  PhotosWithTotalResults,
-} from "./types";
-import { isPhotos } from "./typeCheckers";
+import createFetchWrapper from './createFetchWrapper';
+import { isPhotos } from './typeCheckers';
+import { ErrorResponse, PaginationParams, Photo, Photos, PhotosWithTotalResults } from './types';
 
 type SearchReturn = PhotosWithTotalResults | ErrorResponse;
 type CuratedReturn = Photos | ErrorResponse;
@@ -14,12 +8,10 @@ type ShowReturn = Photo | ErrorResponse;
 type RandomReturn = Photo | ErrorResponse;
 
 export default function generatePhotoEndpoints(apiKey: string) {
-  const fetchWrapper = createFetchWrapper(apiKey, "photo");
+  const fetchWrapper = createFetchWrapper(apiKey, 'photo');
 
   return {
-    search(
-      params: PaginationParams & { query: string }
-    ): Promise<SearchReturn> {
+    search(params: PaginationParams & { query: string }): Promise<SearchReturn> {
       return fetchWrapper(`/search`, params);
     },
     curated(params: PaginationParams = {}): Promise<CuratedReturn> {

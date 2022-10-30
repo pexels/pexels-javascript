@@ -68,8 +68,8 @@ export interface Video {
   };
   video_files: {
     id: number;
-    quality: "hd" | "sd" | "hls"; // TODO: find out all types
-    file_type: "string";
+    quality: 'hd' | 'sd' | 'hls'; // TODO: find out all types
+    file_type: 'string';
     width: number | null;
     height: number | null;
     link: string;

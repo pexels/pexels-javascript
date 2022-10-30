@@ -4,9 +4,9 @@
 // live data reliably.
 export function mutateAllValuesToNull(object: any) {
   // Allow some data that won't change to not be overridden
-  const whitelistedKeys = ["page", "per_page"];
+  const whitelistedKeys = ['page', 'per_page'];
 
-  if (object && typeof object === "object") {
+  if (object && typeof object === 'object') {
     Object.keys(object).forEach((key) => {
       if (whitelistedKeys.includes(key)) {
         return;
@@ -21,7 +21,7 @@ export function mutateAllValuesToNull(object: any) {
         return;
       }
 
-      if (typeof object[key] === "object") {
+      if (typeof object[key] === 'object') {
         mutateAllValuesToNull(object[key]);
         return;
       }
