@@ -34,7 +34,7 @@ export interface Photo {
   avg_color: string | null;
   photographer: string;
   photographer_url: string;
-  photographer_id: string;
+  photographer_id: number;
   liked: boolean;
   src: {
     original: string;
