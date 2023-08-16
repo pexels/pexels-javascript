@@ -1,4 +1,4 @@
-require("isomorphic-fetch");
+const iso = require("isomorphic-fetch");
 
 import generateCollectionEndpoints from "./generateCollectionEndpoints";
 import generatePhotoEndpoints from "./generatePhotoEndpoints";
